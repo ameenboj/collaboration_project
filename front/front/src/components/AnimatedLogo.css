@@ -43,7 +43,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -52,7 +53,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.6;
     filter: drop-shadow(0 0 10px rgba(76, 175, 80, 0.3));
   }
@@ -64,8 +66,7 @@
 
 /* On hover effect */
 .animated-logo:hover .logo-svg {
-  filter: drop-shadow(0 6px 25px rgba(76, 175, 80, 0.6)) 
-          brightness(1.1);
+  filter: drop-shadow(0 6px 25px rgba(76, 175, 80, 0.6)) brightness(1.1);
 }
 
 .animated-logo:hover .logo-glow {
@@ -92,7 +93,7 @@
     width: 80px;
     height: 80px;
   }
-  
+
   .animated-logo.large {
     width: 120px;
     height: 120px;
