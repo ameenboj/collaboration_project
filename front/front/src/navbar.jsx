@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./navbar.css";
+import AnimatedLogo from "./components/AnimatedLogo";
 
 export default function Navbar({ onNavigate }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,17 +26,7 @@ export default function Navbar({ onNavigate }) {
             tabIndex={0}
             aria-label="Worklink home"
           >
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <rect width="28" height="28" rx="4" fill="#14A800" />
-              <path
-                d="M6 14C6 13.4477 6.44772 13 7 13C7.55228 13 8 13.4477 8 14V18C8 19.1046 8.89543 20 10 20H18C18.5523 20 19 20.4477 19 21C19 21.5523 18.5523 22 18 22H10C7.79086 22 6 20.2091 6 18V14Z"
-                fill="white"
-              />
-              <path
-                d="M14 6C13.4477 6 13 6.44772 13 7C13 7.55228 13.4477 8 14 8H18C19.1046 8 20 8.89543 20 10V14C20 14.5523 20.4477 15 21 15C21.5523 15 22 14.5523 22 14V10C22 7.79086 20.2091 6 18 6H14Z"
-                fill="white"
-              />
-            </svg>
+            <AnimatedLogo size="small" animated={true} />
             <span className="logo-text">Worklink</span>
           </div>
         </div>

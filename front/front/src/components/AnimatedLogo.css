@@ -1,0 +1,100 @@
+/* Animated Logo Styles */
+
+.animated-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: transparent;
+}
+
+/* Size variations */
+.animated-logo.small {
+  width: 60px;
+  height: 60px;
+}
+
+.animated-logo.medium {
+  width: 120px;
+  height: 120px;
+}
+
+.animated-logo.large {
+  width: 200px;
+  height: 200px;
+}
+
+.logo-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+/* Animation - Floating effect */
+.animated-logo.animate .logo-group {
+  animation: float 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animated-logo.animate .logo-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 10px rgba(76, 175, 80, 0.3));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(76, 175, 80, 0.8));
+  }
+}
+
+/* On hover effect */
+.animated-logo:hover .logo-svg {
+  filter: drop-shadow(0 6px 25px rgba(76, 175, 80, 0.6)) 
+          brightness(1.1);
+}
+
+.animated-logo:hover .logo-glow {
+  animation-duration: 1s !important;
+}
+
+/* Alternative spin animation */
+.animated-logo.spin .logo-group {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .animated-logo.medium {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .animated-logo.large {
+    width: 120px;
+    height: 120px;
+  }
+}
