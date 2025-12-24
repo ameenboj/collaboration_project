@@ -1,0 +1,9 @@
+/* Reset Vite template styles to avoid constraining layout */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+}
+
+/* Keep file present but neutral — page CSS controls visuals */
