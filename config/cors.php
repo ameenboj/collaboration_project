@@ -19,7 +19,21 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    /*
+    |--------------------------------------------------------------------------
+    | Allowed Origins
+    |--------------------------------------------------------------------------
+    |
+    | Restrict origins in production and allow the React dev server locally.
+    | Add other front-end origins as needed (e.g., staging, production).
+    |
+    */
+    'allowed_origins' => [
+        'http://localhost:3000',
+        'http://127.0.0.1:3000',
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+    ],
 
     'allowed_origins_patterns' => [],
 
@@ -29,6 +43,15 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    /*
+    |--------------------------------------------------------------------------
+    | Supports Credentials
+    |--------------------------------------------------------------------------
+    |
+    | Set to true if your React app needs to send cookies or use session-based
+    | authentication (e.g., Laravel Sanctum). Otherwise false is fine.
+    |
+    */
+    'supports_credentials' => true,
 
 ];
