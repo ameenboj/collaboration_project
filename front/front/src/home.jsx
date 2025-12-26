@@ -43,12 +43,27 @@ const features = [
 ];
 
 const categories = [
-  { name: "Développement Web", icon: "💻", count: 432 },
-  { name: "Design & UX", icon: "🎨", count: 318 },
-  { name: "Rédaction Web", icon: "✍️", count: 245 },
-  { name: "SEO & Marketing", icon: "📊", count: 189 },
-  { name: "E-commerce", icon: "🛍️", count: 156 },
-  { name: "Mobile App", icon: "📱", count: 267 },
+  {
+    name: "Développement Web",
+    icon: "💻",
+    count: 432,
+    view: "category-dev-web",
+  },
+  { name: "Design & UX", icon: "🎨", count: 318, view: "category-design-ux" },
+  {
+    name: "Rédaction Web",
+    icon: "✍️",
+    count: 245,
+    view: "category-redaction-web",
+  },
+  {
+    name: "SEO & Marketing",
+    icon: "📊",
+    count: 189,
+    view: "category-seo-marketing",
+  },
+  { name: "E-commerce", icon: "🛍️", count: 156, view: "category-ecommerce" },
+  { name: "Mobile App", icon: "📱", count: 267, view: "category-mobile-app" },
 ];
 
 const recentProjects = [
@@ -225,7 +240,7 @@ export default function Home({ onNavigate = () => {} }) {
               <div
                 key={idx}
                 className="category-card"
-                onClick={() => onNavigate("register")}
+                onClick={() => onNavigate(cat.view)}
               >
                 <div className="category-icon">{cat.icon}</div>
                 <h3>{cat.name}</h3>
@@ -365,30 +380,7 @@ export default function Home({ onNavigate = () => {} }) {
         </div>
       </section>
 
-      {/* ============= FINAL CTA SECTION ============= */}
-      <section className="final-cta">
-        <div className="cta-content">
-          <h2>Prêt à commencer ?</h2>
-          <p>
-            Rejoignez des milliers de freelances et clients satisfaits chez
-            Worklink
-          </p>
-          <div className="final-cta-buttons">
-            <button
-              className="cta-btn primary large"
-              onClick={() => onNavigate("register")}
-            >
-              Créer un compte
-            </button>
-            <button
-              className="cta-btn secondary large"
-              onClick={() => onNavigate("login")}
-            >
-              Se connecter
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* Final CTA section removed per request */}
     </div>
   );
 }

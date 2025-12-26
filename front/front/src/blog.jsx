@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./blog.css";
+import "./blog-premium.css";
 
 const blogPosts = [
   {

@@ -6,11 +6,13 @@ export default function Navbar({ onNavigate }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [findWorkOpen, setFindWorkOpen] = useState(false);
   const [hireOpen, setHireOpen] = useState(false);
+  const [newsOpen, setNewsOpen] = useState(false);
 
   const go = (view) => {
     setMobileOpen(false);
     setFindWorkOpen(false);
     setHireOpen(false);
+    setNewsOpen(false);
     if (onNavigate) onNavigate(view);
   };
 
@@ -41,7 +43,7 @@ export default function Navbar({ onNavigate }) {
                 setHireOpen(false);
               }}
             >
-              <span>Find Work</span>
+              <span>Trouver du Travail</span>
               <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
                 <path
                   d="M1 1L6 6L11 1"
@@ -58,19 +60,19 @@ export default function Navbar({ onNavigate }) {
                   className="dropdown-item"
                   onClick={() => go("browse-jobs")}
                 >
-                  Browse Jobs
+                  Parcourir les Emplois
                 </button>
                 <button
                   className="dropdown-item"
                   onClick={() => go("saved-jobs")}
                 >
-                  Saved Jobs
+                  Emplois Enregistrés
                 </button>
                 <button
                   className="dropdown-item"
                   onClick={() => go("proposals")}
                 >
-                  My Proposals
+                  Mes Propositions
                 </button>
               </div>
             )}
@@ -84,7 +86,7 @@ export default function Navbar({ onNavigate }) {
                 setFindWorkOpen(false);
               }}
             >
-              <span>Hire Talent</span>
+              <span>Embaucher des Talents</span>
               <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
                 <path
                   d="M1 1L6 6L11 1"
@@ -101,37 +103,70 @@ export default function Navbar({ onNavigate }) {
                   className="dropdown-item"
                   onClick={() => go("post-job")}
                 >
-                  Post a Job
+                  Publier une Mission
                 </button>
                 <button
                   className="dropdown-item"
                   onClick={() => go("browse-talent")}
                 >
-                  Browse Talent
+                  Parcourir les Talents
                 </button>
                 <button className="dropdown-item" onClick={() => go("my-jobs")}>
-                  My Jobs
+                  Mes Emplois
                 </button>
               </div>
             )}
           </div>
 
-          <button className="nav-link" onClick={() => go("messages")}>
-            Messages
-          </button>
-
-          <button className="nav-link" onClick={() => go("blog")}>
-            Blog
-          </button>
+          <div className="dropdown-container">
+            <button
+              className="nav-link dropdown-toggle"
+              onClick={() => {
+                setNewsOpen(!newsOpen);
+                setFindWorkOpen(false);
+                setHireOpen(false);
+              }}
+            >
+              <span>Actualités & Ressources</span>
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path
+                  d="M1 1L6 6L11 1"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            {newsOpen && (
+              <div className="dropdown-menu">
+                <button className="dropdown-item" onClick={() => go("blog")}>
+                  Blog Worklink
+                </button>
+                <button
+                  className="dropdown-item"
+                  onClick={() => go("conseils-guides")}
+                >
+                  Conseils & Guides
+                </button>
+                <button
+                  className="dropdown-item"
+                  onClick={() => go("tendances-freelance")}
+                >
+                  Tendances Freelance
+                </button>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Right side - Auth buttons */}
         <div className="nav-auth">
           <button className="nav-link login-btn" onClick={() => go("login")}>
-            Log In
+            Se Connecter
           </button>
           <button className="btn-signup" onClick={() => go("register")}>
-            Sign Up
+            S'inscrire
           </button>
 
           {/* Mobile menu toggle */}
@@ -157,29 +192,38 @@ export default function Navbar({ onNavigate }) {
       {mobileOpen && (
         <div className="mobile-nav-menu">
           <button className="mobile-nav-item" onClick={() => go("find-work")}>
-            Find Work
+            Trouver du Travail
           </button>
           <button className="mobile-nav-item" onClick={() => go("hire-talent")}>
-            Hire Talent
-          </button>
-          <button className="mobile-nav-item" onClick={() => go("messages")}>
-            Messages
+            Embaucher des Talents
           </button>
           <button className="mobile-nav-item" onClick={() => go("blog")}>
-            Blog
+            Blog Worklink
+          </button>
+          <button
+            className="mobile-nav-item"
+            onClick={() => go("conseils-guides")}
+          >
+            Conseils & Guides
+          </button>
+          <button
+            className="mobile-nav-item"
+            onClick={() => go("tendances-freelance")}
+          >
+            Tendances Freelance
           </button>
           <div className="mobile-nav-divider"></div>
           <button
             className="mobile-nav-item mobile-login"
             onClick={() => go("login")}
           >
-            Log In
+            Se Connecter
           </button>
           <button
             className="mobile-nav-item mobile-signup"
             onClick={() => go("register")}
           >
-            Sign Up
+            S'inscrire
           </button>
         </div>
       )}

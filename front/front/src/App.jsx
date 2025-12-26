@@ -16,15 +16,40 @@ import PostJob from "./post-job.jsx";
 import BrowseTalent from "./browse-talent.jsx";
 import MyJobs from "./my-jobs.jsx";
 import Messages from "./messages.jsx";
+import ConseilsGuides from "./conseils-guides.jsx";
+import TendancesFreelance from "./tendances-freelance.jsx";
+import CategoryDevWeb from "./category-dev-web.jsx";
+import CategoryDesignUX from "./category-design-ux.jsx";
+import CategoryRedactionWeb from "./category-redaction-web.jsx";
+import CategorySEOMarketing from "./category-seo-marketing.jsx";
+import CategoryEcommerce from "./category-ecommerce.jsx";
+import CategoryMobileApp from "./category-mobile-app.jsx";
+import GuideDetail from "./guide-detail.jsx";
+import Footer from "./footer.jsx";
 
 function App() {
   const [view, setView] = useState("home");
+
+  // Extract guide ID if view starts with "guide-"
+  const getGuideId = () => {
+    if (view.startsWith("guide-")) {
+      return view.replace("guide-", "");
+    }
+    return null;
+  };
 
   return (
     <div>
       <Navbar onNavigate={setView} />
       {view === "home" && <Home onNavigate={setView} />}
       {view === "blog" && <Blog onNavigate={setView} />}
+      {view === "conseils-guides" && <ConseilsGuides onNavigate={setView} />}
+      {view.startsWith("guide-") && (
+        <GuideDetail guideId={getGuideId()} onNavigate={setView} />
+      )}
+      {view === "tendances-freelance" && (
+        <TendancesFreelance onNavigate={setView} />
+      )}
       {view === "publier" && <Publier onNavigate={setView} />}
       {view === "ping" && <Ping />}
       {view === "register" && <Register />}
@@ -36,6 +61,23 @@ function App() {
       {view === "browse-talent" && <BrowseTalent onNavigate={setView} />}
       {view === "my-jobs" && <MyJobs onNavigate={setView} />}
       {view === "messages" && <Messages onNavigate={setView} />}
+      {view === "category-dev-web" && <CategoryDevWeb onNavigate={setView} />}
+      {view === "category-design-ux" && (
+        <CategoryDesignUX onNavigate={setView} />
+      )}
+      {view === "category-redaction-web" && (
+        <CategoryRedactionWeb onNavigate={setView} />
+      )}
+      {view === "category-seo-marketing" && (
+        <CategorySEOMarketing onNavigate={setView} />
+      )}
+      {view === "category-ecommerce" && (
+        <CategoryEcommerce onNavigate={setView} />
+      )}
+      {view === "category-mobile-app" && (
+        <CategoryMobileApp onNavigate={setView} />
+      )}
+      <Footer onNavigate={setView} />
     </div>
   );
 }
