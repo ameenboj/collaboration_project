@@ -26,6 +26,7 @@ import CategoryEcommerce from "./category-ecommerce.jsx";
 import CategoryMobileApp from "./category-mobile-app.jsx";
 import GuideDetail from "./guide-detail.jsx";
 import Footer from "./footer.jsx";
+import Pricing from "./pricing.jsx";
 
 function App() {
   const [view, setView] = useState("home");
@@ -50,6 +51,7 @@ function App() {
       {view === "tendances-freelance" && (
         <TendancesFreelance onNavigate={setView} />
       )}
+      {view === "pricing" && <Pricing onNavigate={setView} />}
       {view === "publier" && <Publier onNavigate={setView} />}
       {view === "ping" && <Ping />}
       {view === "register" && <Register />}

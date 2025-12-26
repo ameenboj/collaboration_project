@@ -158,6 +158,10 @@ export default function Navbar({ onNavigate }) {
               </div>
             )}
           </div>
+
+          <button className="nav-link" onClick={() => go("pricing")}>
+            <span>Tarifs</span>
+          </button>
         </nav>
 
         {/* Right side - Auth buttons */}
